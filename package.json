@@ -1,0 +1,23 @@
+{
+	"name": "htm-iotm",
+	"version": "1.0.0",
+	"description": "",
+	"homepage": "https://github.com/productbuilder/htm-iotm#readme",
+	"bugs": {
+		"url": "https://github.com/productbuilder/htm-iotm/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/productbuilder/htm-iotm.git"
+	},
+	"license": "ISC",
+	"author": "JBM Tangelder",
+	"type": "module",
+	"main": "index.js",
+	"directories": {
+		"doc": "docs"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	}
+}
