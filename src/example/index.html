@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>IOTM Widget Consumer Example</title>
+		<style>
+			body {
+				margin: 0;
+				padding: 1.5rem;
+				font-family: "Segoe UI", Tahoma, sans-serif;
+				background: #f8fafc;
+				color: #0f172a;
+			}
+			main {
+				max-width: 1100px;
+				margin: 0 auto;
+				display: grid;
+				gap: 1.25rem;
+			}
+			section {
+				display: grid;
+				gap: 0.6rem;
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<h1>Consumer Integration Example</h1>
+			<p>This page shows default locale behavior and external translation overrides.</p>
+
+			<section>
+				<h2>Default English (`locale="en-US"`)</h2>
+				<iotm-participation-widget
+					locale="en-US"
+					project-id="example"
+					organization-name="Example Museum"
+					header-title="Share Your Story"
+				></iotm-participation-widget>
+			</section>
+
+			<section>
+				<h2>Default Dutch (`locale="nl-NL"`)</h2>
+				<iotm-participation-widget
+					locale="nl-NL"
+					project-id="example"
+					organization-name="Voorbeeldmuseum"
+					header-title="Deel jouw verhaal"
+				></iotm-participation-widget>
+			</section>
+
+			<section>
+				<h2>Custom overrides (partial, consumer supplied)</h2>
+				<iotm-participation-widget
+					id="custom-widget"
+					locale="en-US"
+					project-id="example"
+					organization-name="Custom Museum"
+					header-title="Community Archive"
+				></iotm-participation-widget>
+			</section>
+		</main>
+		<script type="module" src="./index.js"></script>
+	</body>
+</html>

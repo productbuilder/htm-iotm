@@ -1,246 +1,171 @@
-// src/app/js/i18n.js
-
-
-const translations = {
-	en: {
-		steps: {
-			introduction: "Introduction",
-			upload: "Upload media",
-			metadata: "Description and metadata",
-			consent: "Rights and consent",
-			contact: "Contact details",
-			review: "Review and confirmation",
+export const defaultMessages = {
+	steps: {
+		introduction: { en: "Introduction", nl: "Introductie" },
+		upload: { en: "Upload media", nl: "Media uploaden" },
+		metadata: { en: "Description and metadata", nl: "Beschrijving en metadata" },
+		consent: { en: "Rights and consent", nl: "Rechten en toestemming" },
+		contact: { en: "Contact details", nl: "Contactgegevens" },
+		review: { en: "Review and confirmation", nl: "Controleren en bevestigen" },
+	},
+	buttons: {
+		start: { en: "Start", nl: "Start" },
+		back: { en: "Back", nl: "Terug" },
+		continue: { en: "Continue", nl: "Verder" },
+		submit: { en: "Submit submission", nl: "Inzending versturen" },
+		submitting: { en: "Submitting...", nl: "Versturen..." },
+		close: { en: "Close", nl: "Sluiten" },
+		remove: { en: "Remove", nl: "Verwijderen" },
+		readPrivacy: { en: "Read privacy details", nl: "Lees privacyinformatie" },
+	},
+	common: {
+		yes: { en: "Yes", nl: "Ja" },
+		no: { en: "No", nl: "Nee" },
+		none: { en: "(none)", nl: "(geen)" },
+		notAvailable: { en: "n/a", nl: "n.v.t." },
+	},
+	status: {
+		checkingApi: { en: "Checking API availability...", nl: "API-beschikbaarheid controleren..." },
+		apiOnline: { en: "API connection is available.", nl: "API-verbinding is beschikbaar." },
+		apiOffline: {
+			en: "API is currently unavailable. You can continue and try again later.",
+			nl: "API is momenteel niet beschikbaar. Je kunt doorgaan en later opnieuw proberen.",
 		},
-		buttons: {
-			start: "Start",
-			back: "Back",
-			continue: "Continue",
-			submit: "Submit submission",
-			submitting: "Submitting...",
-			close: "Close",
-			remove: "Remove",
-			readPrivacy: "Read privacy details",
+		localMode: {
+			en: "Running in local mode. Set api-base-url to connect backend endpoints.",
+			nl: "Draait in lokale modus. Stel api-base-url in om backend-eindpunten te verbinden.",
 		},
-		common: {
-			yes: "Yes",
-			no: "No",
-			none: "(none)",
-			notAvailable: "n/a",
+		uploading: { en: "Uploading files...", nl: "Bestanden uploaden..." },
+		networkError: { en: "Network error. Please check your connection and try again.", nl: "Netwerkfout. Controleer je verbinding en probeer opnieuw." },
+		submissionError: { en: "Unable to submit right now. Please try again.", nl: "Versturen is nu niet mogelijk. Probeer het opnieuw." },
+	},
+	intro: {
+		title: { en: "Introduction", nl: "Introductie" },
+		descriptionOne: {
+			en: "Use this widget to share photos, videos, or audio related to local history and heritage.",
+			nl: "Gebruik deze widget om foto's, video's of audio te delen over lokale geschiedenis en erfgoed.",
 		},
-		status: {
-			checkingApi: "Checking API availability...",
-			apiOnline: "API connection is available.",
-			apiOffline: "API is currently unavailable. You can continue and try again later.",
-			localMode: "Running in local mode. Set api-base-url to connect backend endpoints.",
-			uploading: "Uploading files...",
-			networkError: "Network error. Please check your connection and try again.",
-			submissionError: "Unable to submit right now. Please try again.",
-		},
-		intro: {
-			title: "Introduction",
-			descriptionOne:
-				"Use this widget to share photos, videos, or audio related to local history and heritage.",
-			descriptionTwo:
-				"You will add media, a short description, rights confirmation, and contact details. This takes a few minutes.",
-		},
-		upload: {
-			title: "Upload media",
-			instruction: "Add at least one media file. Maximum file size: {maxSize}.",
-			chooseFiles: "Choose files",
-			dropzone: "Drag and drop files here",
-			dropzoneLabel: "Upload files by dragging and dropping",
-			empty: "No files selected yet.",
-			previewAlt: "Preview of {name}",
-			sizeMaxSuffix: "max per file",
-			mediaType: {
-				image: "image",
-				video: "video",
-				audio: "audio",
-				unknown: "unknown",
-			},
-		},
-		metadata: {
-			title: "Description and metadata",
-			instruction: "Provide a title or description. Add optional metadata and timestamp.",
-			titleLabel: "Title",
-			descriptionLabel: "Description",
-			extraLabel: "Metadata (keywords, location, date notes)",
-			timestampLabel: "Timestamp",
-		},
-		consent: {
-			title: "Rights and consent",
-			instruction:
-				"By submitting, you confirm that you own the rights to this material or have permission to share it.",
-			rightsLabel: "I confirm that I own the rights or have permission to upload this material.",
-			publicLabel: "I consent to public use of this submission for heritage storytelling.",
-		},
-		contact: {
-			title: "Contact details",
-			instruction: "We use contact details only to follow up on your submission when needed.",
-			nameLabel: "Contributor name",
-			emailLabel: "Email",
-		},
-		review: {
-			title: "Review and confirmation",
-			intro: "Review your submission before you send it.",
-			mediaFiles: "Media files",
-			description: "Description",
-			metadata: "Metadata",
-			rights: "Rights and consent",
-			contact: "Contact details",
-			titleLabel: "Title:",
-			descriptionLabel: "Description:",
-			metadataLabel: "Metadata:",
-			rightsDeclarationLabel: "Rights declaration:",
-			publicConsentLabel: "Public use consent:",
-			nameLabel: "Name:",
-			emailLabel: "Email:",
-		},
-		success: {
-			title: "Submission completed",
-			message: "Thank you. Your submission was sent successfully.",
-			reference: "Reference:",
-		},
-		modal: {
-			title: "Privacy and contact details",
-			closeAriaLabel: "Close dialog",
-			body:
-				"We ask for your contact details so we can verify information, request context, or clarify rights when needed. We use your details only to handle submissions.",
-		},
-		aria: {
-			submissionSteps: "Submission steps",
-		},
-		validation: {
-			fileRequired: "Please add at least one file.",
-			invalidEmail: "Please provide a valid email address.",
-			metadataRequired: "Please provide at least a title or description.",
-			rightsRequired: "Please confirm that you own the rights or have permission.",
-			publicConsentRequired: "Please consent to public use for this submission.",
-			nameRequired: "Contributor name is required.",
-			invalidType: "This file type is not allowed.",
-			fileSizeExceeded: "One or more files exceed the maximum file size.",
+		descriptionTwo: {
+			en: "You will add media, a short description, rights confirmation, and contact details. This takes a few minutes.",
+			nl: "Je voegt media, een korte beschrijving, rechtenbevestiging en contactgegevens toe. Dit duurt een paar minuten.",
 		},
 	},
-	nl: {
-		steps: {
-			introduction: "Introductie",
-			upload: "Media uploaden",
-			metadata: "Beschrijving en metadata",
-			consent: "Rechten en toestemming",
-			contact: "Contactgegevens",
-			review: "Controleren en bevestigen",
+	upload: {
+		title: { en: "Upload media", nl: "Media uploaden" },
+		instruction: { en: "Add at least one media file. Maximum file size: {maxSize}.", nl: "Voeg minimaal een mediabestand toe. Maximale bestandsgrootte: {maxSize}." },
+		chooseFiles: { en: "Choose files", nl: "Bestanden kiezen" },
+		dropzone: { en: "Drag and drop files here", nl: "Sleep bestanden hier naartoe" },
+		dropzoneLabel: { en: "Upload files by dragging and dropping", nl: "Upload bestanden door ze hierheen te slepen" },
+		empty: { en: "No files selected yet.", nl: "Nog geen bestanden geselecteerd." },
+		previewAlt: { en: "Preview of {name}", nl: "Voorbeeld van {name}" },
+		sizeMaxSuffix: { en: "max per file", nl: "max per bestand" },
+		mediaType: {
+			image: { en: "image", nl: "afbeelding" },
+			video: { en: "video", nl: "video" },
+			audio: { en: "audio", nl: "audio" },
+			unknown: { en: "unknown", nl: "onbekend" },
 		},
-		buttons: {
-			start: "Start",
-			back: "Terug",
-			continue: "Verder",
-			submit: "Inzending versturen",
-			submitting: "Versturen...",
-			close: "Sluiten",
-			remove: "Verwijderen",
-			readPrivacy: "Lees privacyinformatie",
+	},
+	metadata: {
+		title: { en: "Description and metadata", nl: "Beschrijving en metadata" },
+		instruction: { en: "Provide a title or description. Add optional metadata and timestamp.", nl: "Geef een titel of beschrijving. Voeg optionele metadata en een tijdstip toe." },
+		titleLabel: { en: "Title", nl: "Titel" },
+		descriptionLabel: { en: "Description", nl: "Beschrijving" },
+		extraLabel: { en: "Metadata (keywords, location, date notes)", nl: "Metadata (trefwoorden, locatie, datumopmerkingen)" },
+		timestampLabel: { en: "Timestamp", nl: "Tijdstip" },
+	},
+	consent: {
+		title: { en: "Rights and consent", nl: "Rechten en toestemming" },
+		instruction: {
+			en: "By submitting, you confirm that you own the rights to this material or have permission to share it.",
+			nl: "Door te versturen bevestig je dat je de rechten op dit materiaal hebt, of toestemming hebt om het te delen.",
 		},
-		common: {
-			yes: "Ja",
-			no: "Nee",
-			none: "(geen)",
-			notAvailable: "n.v.t.",
+		rightsLabel: {
+			en: "I confirm that I own the rights or have permission to upload this material.",
+			nl: "Ik bevestig dat ik de rechten heb, of toestemming, om dit materiaal te uploaden.",
 		},
-		status: {
-			checkingApi: "API-beschikbaarheid controleren...",
-			apiOnline: "API-verbinding is beschikbaar.",
-			apiOffline: "API is momenteel niet beschikbaar. Je kunt doorgaan en later opnieuw proberen.",
-			localMode: "Draait in lokale modus. Stel api-base-url in om backend-eindpunten te verbinden.",
-			uploading: "Bestanden uploaden...",
-			networkError: "Netwerkfout. Controleer je verbinding en probeer opnieuw.",
-			submissionError: "Versturen is nu niet mogelijk. Probeer het opnieuw.",
+		publicLabel: {
+			en: "I consent to public use of this submission for heritage storytelling.",
+			nl: "Ik geef toestemming voor openbaar gebruik van deze inzending voor erfgoedverhalen.",
 		},
-		intro: {
-			title: "Introductie",
-			descriptionOne:
-				"Gebruik deze widget om foto's, video's of audio te delen over lokale geschiedenis en erfgoed.",
-			descriptionTwo:
-				"Je voegt media, een korte beschrijving, rechtenbevestiging en contactgegevens toe. Dit duurt een paar minuten.",
+	},
+	contact: {
+		title: { en: "Contact details", nl: "Contactgegevens" },
+		instruction: {
+			en: "We use contact details only to follow up on your submission when needed.",
+			nl: "We gebruiken contactgegevens alleen om je inzending op te volgen wanneer dat nodig is.",
 		},
-		upload: {
-			title: "Media uploaden",
-			instruction: "Voeg minimaal een mediabestand toe. Maximale bestandsgrootte: {maxSize}.",
-			chooseFiles: "Bestanden kiezen",
-			dropzone: "Sleep bestanden hier naartoe",
-			dropzoneLabel: "Upload bestanden door ze hierheen te slepen",
-			empty: "Nog geen bestanden geselecteerd.",
-			previewAlt: "Voorbeeld van {name}",
-			sizeMaxSuffix: "max per bestand",
-			mediaType: {
-				image: "afbeelding",
-				video: "video",
-				audio: "audio",
-				unknown: "onbekend",
-			},
+		nameLabel: { en: "Contributor name", nl: "Naam van de bijdrager" },
+		emailLabel: { en: "Email", nl: "E-mail" },
+	},
+	review: {
+		title: { en: "Review and confirmation", nl: "Controleren en bevestigen" },
+		intro: { en: "Review your submission before you send it.", nl: "Controleer je inzending voordat je deze verstuurt." },
+		mediaFiles: { en: "Media files", nl: "Mediabestanden" },
+		description: { en: "Description", nl: "Beschrijving" },
+		metadata: { en: "Metadata", nl: "Metadata" },
+		rights: { en: "Rights and consent", nl: "Rechten en toestemming" },
+		contact: { en: "Contact details", nl: "Contactgegevens" },
+		titleLabel: { en: "Title:", nl: "Titel:" },
+		descriptionLabel: { en: "Description:", nl: "Beschrijving:" },
+		metadataLabel: { en: "Metadata:", nl: "Metadata:" },
+		rightsDeclarationLabel: { en: "Rights declaration:", nl: "Rechtenverklaring:" },
+		publicConsentLabel: { en: "Public use consent:", nl: "Toestemming voor openbaar gebruik:" },
+		nameLabel: { en: "Name:", nl: "Naam:" },
+		emailLabel: { en: "Email:", nl: "E-mail:" },
+	},
+	success: {
+		title: { en: "Submission completed", nl: "Inzending voltooid" },
+		message: { en: "Thank you. Your submission was sent successfully.", nl: "Bedankt. Je inzending is succesvol verstuurd." },
+		reference: { en: "Reference:", nl: "Referentie:" },
+	},
+	modal: {
+		title: { en: "Privacy and contact details", nl: "Privacy en contactgegevens" },
+		closeAriaLabel: { en: "Close dialog", nl: "Dialoog sluiten" },
+		body: {
+			en: "We ask for your contact details so we can verify information, request context, or clarify rights when needed. We use your details only to handle submissions.",
+			nl: "We vragen om je contactgegevens zodat we informatie kunnen verifieren, context kunnen opvragen, of rechten kunnen verduidelijken wanneer dat nodig is. We gebruiken je gegevens alleen voor de afhandeling van inzendingen.",
 		},
-		metadata: {
-			title: "Beschrijving en metadata",
-			instruction: "Geef een titel of beschrijving. Voeg optionele metadata en een tijdstip toe.",
-			titleLabel: "Titel",
-			descriptionLabel: "Beschrijving",
-			extraLabel: "Metadata (trefwoorden, locatie, datumopmerkingen)",
-			timestampLabel: "Tijdstip",
-		},
-		consent: {
-			title: "Rechten en toestemming",
-			instruction:
-				"Door te versturen bevestig je dat je de rechten op dit materiaal hebt, of toestemming hebt om het te delen.",
-			rightsLabel: "Ik bevestig dat ik de rechten heb, of toestemming, om dit materiaal te uploaden.",
-			publicLabel: "Ik geef toestemming voor openbaar gebruik van deze inzending voor erfgoedverhalen.",
-		},
-		contact: {
-			title: "Contactgegevens",
-			instruction: "We gebruiken contactgegevens alleen om je inzending op te volgen wanneer dat nodig is.",
-			nameLabel: "Naam van de bijdrager",
-			emailLabel: "E-mail",
-		},
-		review: {
-			title: "Controleren en bevestigen",
-			intro: "Controleer je inzending voordat je deze verstuurt.",
-			mediaFiles: "Mediabestanden",
-			description: "Beschrijving",
-			metadata: "Metadata",
-			rights: "Rechten en toestemming",
-			contact: "Contactgegevens",
-			titleLabel: "Titel:",
-			descriptionLabel: "Beschrijving:",
-			metadataLabel: "Metadata:",
-			rightsDeclarationLabel: "Rechtenverklaring:",
-			publicConsentLabel: "Toestemming voor openbaar gebruik:",
-			nameLabel: "Naam:",
-			emailLabel: "E-mail:",
-		},
-		success: {
-			title: "Inzending voltooid",
-			message: "Bedankt. Je inzending is succesvol verstuurd.",
-			reference: "Referentie:",
-		},
-		modal: {
-			title: "Privacy en contactgegevens",
-			closeAriaLabel: "Dialoog sluiten",
-			body:
-				"We vragen om je contactgegevens zodat we informatie kunnen verifieren, context kunnen opvragen, of rechten kunnen verduidelijken wanneer dat nodig is. We gebruiken je gegevens alleen voor de afhandeling van inzendingen.",
-		},
-		aria: {
-			submissionSteps: "Stappen van de inzending",
-		},
-		validation: {
-			fileRequired: "Voeg minimaal een bestand toe.",
-			invalidEmail: "Vul een geldig e-mailadres in.",
-			metadataRequired: "Geef minimaal een titel of beschrijving op.",
-			rightsRequired: "Bevestig dat je de rechten hebt, of toestemming hebt.",
-			publicConsentRequired: "Geef toestemming voor openbaar gebruik van deze inzending.",
-			nameRequired: "Naam van de bijdrager is verplicht.",
-			invalidType: "Dit bestandstype is niet toegestaan.",
-			fileSizeExceeded: "Een of meer bestanden zijn groter dan de maximale bestandsgrootte.",
-		},
+	},
+	aria: {
+		submissionSteps: { en: "Submission steps", nl: "Stappen van de inzending" },
+	},
+	validation: {
+		fileRequired: { en: "Please add at least one file.", nl: "Voeg minimaal een bestand toe." },
+		invalidEmail: { en: "Please provide a valid email address.", nl: "Vul een geldig e-mailadres in." },
+		metadataRequired: { en: "Please provide at least a title or description.", nl: "Geef minimaal een titel of beschrijving op." },
+		rightsRequired: { en: "Please confirm that you own the rights or have permission.", nl: "Bevestig dat je de rechten hebt, of toestemming hebt." },
+		publicConsentRequired: { en: "Please consent to public use for this submission.", nl: "Geef toestemming voor openbaar gebruik van deze inzending." },
+		nameRequired: { en: "Contributor name is required.", nl: "Naam van de bijdrager is verplicht." },
+		invalidType: { en: "This file type is not allowed.", nl: "Dit bestandstype is niet toegestaan." },
+		fileSizeExceeded: { en: "One or more files exceed the maximum file size.", nl: "Een of meer bestanden zijn groter dan de maximale bestandsgrootte." },
 	},
 };
+
+function isObject(value) {
+	return value !== null && typeof value === "object" && !Array.isArray(value);
+}
+
+function isLocalizedLeaf(value) {
+	return isObject(value) && ("en" in value || "nl" in value);
+}
+
+function mergeMessages(base, override) {
+	if (!isObject(override)) return base;
+	const result = { ...base };
+	for (const [key, overrideValue] of Object.entries(override)) {
+		const baseValue = result[key];
+		if (isLocalizedLeaf(overrideValue)) {
+			result[key] = { ...(isObject(baseValue) ? baseValue : {}), ...overrideValue };
+			continue;
+		}
+		if (isObject(overrideValue) && isObject(baseValue)) {
+			result[key] = mergeMessages(baseValue, overrideValue);
+			continue;
+		}
+		result[key] = overrideValue;
+	}
+	return result;
+}
 
 function getNestedValue(source, key) {
 	return key.split(".").reduce((acc, part) => (acc && acc[part] !== undefined ? acc[part] : undefined), source);
@@ -259,14 +184,25 @@ export function resolveLanguageFromLocale(locale) {
 	return "en";
 }
 
-export function createTranslator(locale) {
+function resolveMessageValue(messageEntry, language) {
+	if (isLocalizedLeaf(messageEntry)) {
+		return messageEntry[language] ?? messageEntry.en;
+	}
+	return messageEntry;
+}
+
+export function createTranslator({ locale, overrides } = {}) {
 	const language = resolveLanguageFromLocale(locale);
+	const mergedMessages = mergeMessages(defaultMessages, overrides || {});
 	return {
 		language,
+		messages: mergedMessages,
 		t(key, params = {}) {
-			const primary = translations[language] || translations.en;
-			const fallback = translations.en;
-			const value = getNestedValue(primary, key) ?? getNestedValue(fallback, key) ?? key;
+			const entry = getNestedValue(mergedMessages, key);
+			const value = resolveMessageValue(entry, language);
+			if (value === undefined) {
+				return key;
+			}
 			return interpolate(value, params);
 		},
 	};

@@ -22,6 +22,7 @@ export class IotmParticipationWidget extends HTMLElement {
 		this.state = {
 			currentStep: 0,
 			config: { ...DEFAULT_CONFIG },
+			translations: {},
 			apiStatus: "idle",
 			apiError: "",
 			globalError: "",
@@ -51,7 +52,14 @@ export class IotmParticipationWidget extends HTMLElement {
 		};
 
 		this.api = new ApiClient("");
-		this.translator = createTranslator(this.state.config.locale);
+		const globalConfig = typeof window !== "undefined" ? window.IOTM_PARTICIPATION_WIDGET_CONFIG : null;
+		if (globalConfig?.translations) {
+			this.state.translations = globalConfig.translations;
+		}
+		this.translator = createTranslator({
+			locale: this.state.config.locale,
+			overrides: this.state.translations,
+		});
 		this.t = this.translator.t;
 
 		this._boundOnChange = this.onChange.bind(this);
@@ -177,8 +185,20 @@ export class IotmParticipationWidget extends HTMLElement {
 		this.setAttribute("header-title", value || "");
 	}
 
+	get translations() {
+		return this.state.translations;
+	}
+	set translations(value) {
+		this.state.translations = value && typeof value === "object" ? value : {};
+		this.updateTranslator();
+		this.render();
+	}
+
 	updateTranslator() {
-		this.translator = createTranslator(this.state.config.locale);
+		this.translator = createTranslator({
+			locale: this.state.config.locale,
+			overrides: this.state.translations,
+		});
 		this.t = this.translator.t;
 	}
 
