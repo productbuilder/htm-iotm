@@ -9,65 +9,46 @@
 	<body>
 		<main>
 			<h1>Consumer Integration Example</h1>
-			<p>
-				This page shows default usage, locale switching, text overrides, styling
-				overrides, and a combined consumer setup.
-			</p>
+			<p id="consumer-helper-text"></p>
 
 			<section>
-				<h2>1. Default widget styling (`locale="en-US"`)</h2>
+				<h2 id="consumer-dialog-heading"></h2>
+				<div class="consumer-toolbar">
+					<label for="consumer-locale" id="consumer-locale-label"></label>
+					<select id="consumer-locale">
+						<option value="en">English</option>
+						<option value="nl">Nederlands</option>
+					</select>
+					<button id="open-widget-dialog" type="button"></button>
+				</div>
+				<dialog id="consumer-widget-dialog" aria-labelledby="consumer-dialog-title">
+					<div class="dialog-frame">
+						<header class="dialog-header">
+							<h3 id="consumer-dialog-title"></h3>
+							<button id="close-widget-dialog" type="button"></button>
+						</header>
+						<p id="consumer-dialog-note"></p>
+						<iotm-participation-widget
+							id="dialog-widget"
+							class="brand-theme-alt"
+							locale="en-US"
+							project-id="example-dialog"
+							organization-name="City Heritage Lab"
+							header-title="Community Memory Collection"
+							about-title="About this community collection"
+						></iotm-participation-widget>
+					</div>
+				</dialog>
+			</section>
+
+			<section>
+				<h2>Inline embed remains available (`locale="en-US"`)</h2>
 				<iotm-participation-widget
 					id="default-widget"
 					locale="en-US"
 					project-id="example"
 					organization-name="Example Museum"
 					header-title="Share Your Story"
-				></iotm-participation-widget>
-			</section>
-
-			<section>
-				<h2>2. Dutch locale defaults (`locale="nl-NL"`)</h2>
-				<iotm-participation-widget
-					id="nl-widget"
-					locale="nl-NL"
-					project-id="example"
-					organization-name="Voorbeeldmuseum"
-					header-title="Deel jouw verhaal"
-				></iotm-participation-widget>
-			</section>
-
-			<section>
-				<h2>3. Consumer text override (partial messages)</h2>
-				<iotm-participation-widget
-					id="text-widget"
-					locale="en-US"
-					project-id="example"
-					organization-name="Custom Museum"
-					header-title="Community Archive"
-				></iotm-participation-widget>
-			</section>
-
-			<section>
-				<h2>4. Consumer styling override (CSS custom properties + ::part)</h2>
-				<iotm-participation-widget
-					id="styled-widget"
-					class="brand-theme"
-					locale="en-US"
-					project-id="example"
-					organization-name="River City Museum"
-					header-title="Stories From The River"
-				></iotm-participation-widget>
-			</section>
-
-			<section>
-				<h2>5. Combined text + styling override</h2>
-				<iotm-participation-widget
-					id="combined-widget"
-					class="brand-theme-alt"
-					locale="nl-NL"
-					project-id="example"
-					organization-name="Stadsarchief"
-					header-title="Jouw Verhaal, Onze Stad"
 				></iotm-participation-widget>
 			</section>
 		</main>

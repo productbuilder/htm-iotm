@@ -48,7 +48,7 @@ export class IotmParticipationWidget extends HTMLElement {
 			},
 			submissionStatus: "idle",
 			submissionResponse: null,
-			modalOpen: false,
+			modalType: "",
 		};
 
 		this.api = new ApiClient("");
@@ -185,6 +185,34 @@ export class IotmParticipationWidget extends HTMLElement {
 		this.setAttribute("header-title", value || "");
 	}
 
+	get aboutTitle() {
+		return this.state.config.aboutTitle;
+	}
+	set aboutTitle(value) {
+		this.setAttribute("about-title", value || "");
+	}
+
+	get aboutSummary() {
+		return this.state.config.aboutSummary;
+	}
+	set aboutSummary(value) {
+		this.setAttribute("about-summary", value || "");
+	}
+
+	get aboutBody() {
+		return this.state.config.aboutBody;
+	}
+	set aboutBody(value) {
+		this.setAttribute("about-body", value || "");
+	}
+
+	get aboutContactNote() {
+		return this.state.config.aboutContactNote;
+	}
+	set aboutContactNote(value) {
+		this.setAttribute("about-contact-note", value || "");
+	}
+
 	get translations() {
 		return this.state.translations;
 	}
@@ -297,12 +325,17 @@ export class IotmParticipationWidget extends HTMLElement {
 			return;
 		}
 		if (action === "open-modal") {
-			this.state.modalOpen = true;
+			this.state.modalType = "privacy";
+			this.render();
+			return;
+		}
+		if (action === "open-about") {
+			this.state.modalType = "about";
 			this.render();
 			return;
 		}
 		if (action === "close-modal") {
-			this.state.modalOpen = false;
+			this.state.modalType = "";
 			this.render();
 			return;
 		}
@@ -317,14 +350,14 @@ export class IotmParticipationWidget extends HTMLElement {
 	}
 
 	onKeydown(event) {
-		if (event.key === "Escape" && this.state.modalOpen) {
-			this.state.modalOpen = false;
+		if (event.key === "Escape" && this.state.modalType) {
+			this.state.modalType = "";
 			this.render();
 		}
 	}
 
 	onModalClose() {
-		this.state.modalOpen = false;
+		this.state.modalType = "";
 		this.render();
 	}
 
@@ -699,17 +732,41 @@ export class IotmParticipationWidget extends HTMLElement {
 	}
 
 	renderModal() {
-		if (!this.state.modalOpen) return "";
+		if (!this.state.modalType) return "";
+		const modalTitle = this.state.modalType === "about" ? this.getAboutContent().title : this.t("modal.title");
+		const modalBody =
+			this.state.modalType === "about"
+				? this.renderAboutModalBody()
+				: `<p>${escapeHtml(this.t("modal.body"))}</p>`;
 		return `
 			<widget-modal
 				open
-				title="${escapeHtml(this.t("modal.title"))}"
+				title="${escapeHtml(modalTitle)}"
 				close-label="${escapeHtml(this.t("buttons.close"))}"
 				close-aria-label="${escapeHtml(this.t("modal.closeAriaLabel"))}"
 				exportparts="modal,modal-backdrop"
 			>
-				<p>${escapeHtml(this.t("modal.body"))}</p>
+				${modalBody}
 			</widget-modal>
+		`;
+	}
+
+	getAboutContent() {
+		const organization = this.state.config.organizationName || this.t("common.notAvailable");
+		return {
+			title: this.state.config.aboutTitle || this.t("about.title"),
+			summary: this.state.config.aboutSummary || this.t("about.summary", { organization }),
+			body: this.state.config.aboutBody || this.t("about.body"),
+			contactNote: this.state.config.aboutContactNote || this.t("about.contactNote"),
+		};
+	}
+
+	renderAboutModalBody() {
+		const about = this.getAboutContent();
+		return `
+			<p>${escapeHtml(about.summary)}</p>
+			<p>${escapeHtml(about.body)}</p>
+			<p>${escapeHtml(about.contactNote)}</p>
 		`;
 	}
 
@@ -766,6 +823,11 @@ export class IotmParticipationWidget extends HTMLElement {
 					align-items: center;
 					justify-content: space-between;
 					gap: 1rem;
+				}
+				.header-actions {
+					display: flex;
+					align-items: center;
+					gap: 0.6rem;
 				}
 				.sidebar {
 					padding: var(--iotm-spacing);
@@ -915,7 +977,15 @@ export class IotmParticipationWidget extends HTMLElement {
 						<strong>${escapeHtml(this.state.config.headerTitle)}</strong>
 						<div>${escapeHtml(this.state.config.organizationName)}</div>
 					</div>
-					<div>${Math.min(currentStep + 1, STEP_DEFINITIONS.length)} / ${STEP_DEFINITIONS.length}</div>
+					<div class="header-actions">
+						<button
+							part="button"
+							type="button"
+							data-action="open-about"
+							aria-label="${escapeHtml(this.t("aria.aboutButton"))}"
+						>${escapeHtml(this.t("buttons.about"))}</button>
+						<div>${Math.min(currentStep + 1, STEP_DEFINITIONS.length)} / ${STEP_DEFINITIONS.length}</div>
+					</div>
 				</header>
 				<nav class="sidebar" part="sidebar" aria-label="${escapeHtml(this.t("aria.submissionSteps"))}">
 					${steps}

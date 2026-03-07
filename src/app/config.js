@@ -9,6 +9,10 @@ export const DEFAULT_CONFIG = {
 	maxFileSize: 10 * 1024 * 1024,
 	organizationName: "",
 	headerTitle: "",
+	aboutTitle: "",
+	aboutSummary: "",
+	aboutBody: "",
+	aboutContactNote: "",
 };
 
 export const ATTRIBUTE_MAP = {
@@ -22,6 +26,10 @@ export const ATTRIBUTE_MAP = {
 	"max-file-size": "maxFileSize",
 	"organization-name": "organizationName",
 	"header-title": "headerTitle",
+	"about-title": "aboutTitle",
+	"about-summary": "aboutSummary",
+	"about-body": "aboutBody",
+	"about-contact-note": "aboutContactNote",
 };
 
 export const STEP_DEFINITIONS = [

@@ -24,4 +24,14 @@ export const customTranslations = {
 			nl: "Bevestig de rechten voor je verstuurt, zodat we verantwoord kunnen publiceren.",
 		},
 	},
+	about: {
+		title: {
+			en: "About the community contribution process",
+			nl: "Over het proces voor bijdragen uit de gemeenschap",
+		},
+		summary: {
+			en: "This contribution flow is managed by the City Heritage Lab and supports local memory projects.",
+			nl: "Deze bijdrageflow wordt beheerd door het City Heritage Lab en ondersteunt lokale geheugenprojecten.",
+		},
+	},
 };

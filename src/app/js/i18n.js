@@ -16,6 +16,7 @@ export const defaultMessages = {
 		close: { en: "Close", nl: "Sluiten" },
 		remove: { en: "Remove", nl: "Verwijderen" },
 		readPrivacy: { en: "Read privacy details", nl: "Lees privacyinformatie" },
+		about: { en: "About", nl: "Info" },
 	},
 	common: {
 		yes: { en: "Yes", nl: "Ja" },
@@ -126,8 +127,24 @@ export const defaultMessages = {
 			nl: "We vragen om je contactgegevens zodat we informatie kunnen verifieren, context kunnen opvragen, of rechten kunnen verduidelijken wanneer dat nodig is. We gebruiken je gegevens alleen voor de afhandeling van inzendingen.",
 		},
 	},
+	about: {
+		title: { en: "About this participation widget", nl: "Over deze participatiewidget" },
+		summary: {
+			en: "This widget helps {organization} collect local heritage stories and media from the community.",
+			nl: "Deze widget helpt {organization} om lokale erfgoedverhalen en media uit de gemeenschap te verzamelen.",
+		},
+		body: {
+			en: "You can submit photos, videos, audio, and context details. After submission, the project team can review your contribution and follow up when needed.",
+			nl: "Je kunt foto's, video's, audio en contextinformatie insturen. Na inzending kan het projectteam je bijdrage beoordelen en indien nodig contact opnemen.",
+		},
+		contactNote: {
+			en: "Contact details are requested so we can verify information, confirm rights, and provide updates about your submission.",
+			nl: "Contactgegevens worden gevraagd zodat we informatie kunnen verifiëren, rechten kunnen bevestigen en updates over je inzending kunnen geven.",
+		},
+	},
 	aria: {
 		submissionSteps: { en: "Submission steps", nl: "Stappen van de inzending" },
+		aboutButton: { en: "Open about information", nl: "Open informatie over deze widget" },
 	},
 	validation: {
 		fileRequired: { en: "Please add at least one file.", nl: "Voeg minimaal een bestand toe." },
