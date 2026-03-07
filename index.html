@@ -3,15 +3,152 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>IOTM Participation Widget MVP</title>
-		<link rel="stylesheet" href="./css/index.css" />
+		<title>IOTM Participation Widget</title>
+		<style>
+			body {
+				margin: 0;
+				font-family: "Segoe UI", Tahoma, sans-serif;
+				color: #111827;
+				background: #f8fafc;
+				line-height: 1.55;
+			}
+			main {
+				max-width: 960px;
+				margin: 0 auto;
+				padding: 2rem 1rem 3rem;
+				display: grid;
+				gap: 1.5rem;
+			}
+			header,
+			section {
+				background: #ffffff;
+				border: 1px solid #e5e7eb;
+				border-radius: 10px;
+				padding: 1rem 1.1rem;
+			}
+			h1,
+			h2 {
+				margin: 0 0 0.6rem;
+			}
+			p,
+			ul,
+			ol {
+				margin: 0;
+			}
+			ul,
+			ol {
+				padding-left: 1.2rem;
+				display: grid;
+				gap: 0.2rem;
+			}
+			pre {
+				margin: 0;
+				padding: 0.8rem;
+				overflow: auto;
+				background: #0f172a;
+				color: #e2e8f0;
+				border-radius: 8px;
+			}
+			code {
+				font-family: Consolas, Monaco, monospace;
+			}
+			.links {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.8rem;
+			}
+			a {
+				color: #0369a1;
+			}
+		</style>
 	</head>
 	<body>
-        <ul>
-			<li><a href="./src/index.html"> Home </a></li>
-            <li><a href="./src/app/index.html"> App </a></li>
-            <li><a href="./src/example/index.html"> Example</a></li>
-			<li><a href="./src/docs/index.html"> Doc </a></li>
-        </ul>
+		<main>
+			<header>
+				<h1>IOTM Participation Widget</h1>
+				<p>
+					Embeddable participation flow for collecting community heritage
+					contributions.
+				</p>
+			</header>
+
+			<section>
+				<h2>Introduction</h2>
+				<p>
+					The widget provides a consistent way to gather local heritage
+					contributions across websites and applications. It helps organizations
+					collect structured submissions without building a custom upload flow
+					for each channel.
+				</p>
+			</section>
+
+			<section>
+				<h2>What the Widget Does</h2>
+				<p>Contributors can submit heritage material such as:</p>
+				<ul>
+					<li>photos</li>
+					<li>videos</li>
+					<li>audio recordings</li>
+					<li>written descriptions</li>
+				</ul>
+				<p>The widget also collects:</p>
+				<ul>
+					<li>metadata</li>
+					<li>rights consent</li>
+					<li>contact details</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>Key Features</h2>
+				<ul>
+					<li>embeddable web component</li>
+					<li>framework-independent</li>
+					<li>REST API integration</li>
+					<li>configurable text and styling</li>
+					<li>internationalization support</li>
+					<li>accessible design</li>
+					<li>modular upload flow</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>How It Works</h2>
+				<ol>
+					<li>Introduction</li>
+					<li>Upload media</li>
+					<li>Metadata</li>
+					<li>Rights and consent</li>
+					<li>Contact details</li>
+					<li>Review and confirmation</li>
+				</ol>
+			</section>
+
+			<section>
+				<h2>Integration</h2>
+				<p>The widget can be embedded in:</p>
+				<ul>
+					<li>plain HTML pages</li>
+					<li>CMS platforms</li>
+					<li>React applications</li>
+					<li>Vue applications</li>
+					<li>Angular applications</li>
+					<li>server-rendered websites</li>
+				</ul>
+				<pre><code>&lt;iotm-participation-widget
+  api-base-url="https://example-api.org"
+  project-id="heritage-project"
+  locale="en"&gt;
+&lt;/iotm-participation-widget&gt;</code></pre>
+			</section>
+
+			<section>
+				<h2>Links</h2>
+				<div class="links">
+					<a href="/src/docs/">Developer documentation</a>
+					<a href="/src/example/">Consumer example</a>
+				</div>
+			</section>
+		</main>
 	</body>
 </html>
