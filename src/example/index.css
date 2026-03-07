@@ -1,0 +1,124 @@
+body {
+	margin: 0;
+	padding: 1.5rem;
+	font-family: "Segoe UI", Tahoma, sans-serif;
+	background: #f8fafc;
+	color: #0f172a;
+}
+
+main {
+	max-width: 1100px;
+	margin: 0 auto;
+	display: grid;
+	gap: 1.25rem;
+}
+
+section {
+	display: grid;
+	gap: 0.6rem;
+}
+
+iotm-participation-widget {
+	display: block;
+}
+
+.brand-theme {
+	--iotm-color-bg: #f1f5f9;
+	--iotm-color-surface: #ffffff;
+	--iotm-color-text: #111827;
+	--iotm-color-primary: #0369a1;
+	--iotm-color-danger: #b91c1c;
+	--iotm-border-color: #7dd3fc;
+	--iotm-border: 1px solid #7dd3fc;
+	--iotm-radius: 14px;
+	--iotm-spacing: 1.1rem;
+	--iotm-font: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+.brand-theme::part(shell) {
+	box-shadow: 0 18px 40px rgba(2, 132, 199, 0.12);
+}
+
+.brand-theme::part(header) {
+	background: linear-gradient(90deg, #0c4a6e 0%, #0369a1 100%);
+	color: #f8fafc;
+}
+
+.brand-theme::part(sidebar) {
+	background: #e0f2fe;
+}
+
+.brand-theme::part(viewport) {
+	background: #f0f9ff;
+}
+
+.brand-theme::part(content) {
+	background: #ffffff;
+}
+
+.brand-theme::part(button) {
+	border-radius: 999px;
+	background: #ffffff;
+	border: 1px solid #0284c7;
+}
+
+.brand-theme::part(input) {
+	border-radius: 12px;
+	border: 1px solid #7dd3fc;
+}
+
+.brand-theme::part(upload-dropzone) {
+	background: #e0f2fe;
+	border-color: #0284c7;
+}
+
+.brand-theme::part(modal-backdrop) {
+	background: rgba(3, 105, 161, 0.35);
+}
+
+.brand-theme::part(modal) {
+	border-radius: 18px;
+	border: 1px solid #0284c7;
+}
+
+.brand-theme-alt {
+	--iotm-color-bg: #fef9f3;
+	--iotm-color-surface: #fffdf8;
+	--iotm-color-text: #2f1f12;
+	--iotm-color-primary: #a16207;
+	--iotm-color-danger: #b91c1c;
+	--iotm-border-color: #facc15;
+	--iotm-border: 1px solid #facc15;
+	--iotm-radius: 18px;
+	--iotm-spacing: 1.15rem;
+	--iotm-font: Georgia, "Times New Roman", serif;
+}
+
+.brand-theme-alt::part(header) {
+	background: linear-gradient(90deg, #78350f 0%, #a16207 100%);
+	color: #fffbeb;
+}
+
+.brand-theme-alt::part(sidebar) {
+	background: #fef3c7;
+}
+
+.brand-theme-alt::part(button) {
+	border-radius: 10px;
+	background: #fef3c7;
+	border: 1px solid #a16207;
+}
+
+.brand-theme-alt::part(upload-dropzone) {
+	background: #fffbeb;
+	border-color: #ca8a04;
+}
+
+.brand-theme-alt::part(modal-backdrop) {
+	background: rgba(120, 53, 15, 0.35);
+}
+
+.brand-theme-alt::part(modal) {
+	border-radius: 20px;
+	border: 1px solid #a16207;
+}
