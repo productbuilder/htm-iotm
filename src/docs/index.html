@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>IOTM Participation Widget Documentation</title>
+		<style>
+			body {
+				margin: 0;
+				font-family: "Segoe UI", Tahoma, sans-serif;
+				color: #111827;
+				background: #f8fafc;
+				line-height: 1.55;
+			}
+			main {
+				max-width: 1080px;
+				margin: 0 auto;
+				padding: 2rem 1rem 3rem;
+				display: grid;
+				gap: 1rem;
+			}
+			section {
+				background: #ffffff;
+				border: 1px solid #e5e7eb;
+				border-radius: 10px;
+				padding: 1rem 1.1rem;
+			}
+			h1,
+			h2,
+			h3 {
+				margin: 0 0 0.55rem;
+			}
+			p,
+			ul {
+				margin: 0;
+			}
+			ul {
+				padding-left: 1.2rem;
+				display: grid;
+				gap: 0.2rem;
+			}
+			pre {
+				margin: 0;
+				padding: 0.8rem;
+				overflow: auto;
+				background: #0f172a;
+				color: #e2e8f0;
+				border-radius: 8px;
+			}
+			code {
+				font-family: Consolas, Monaco, monospace;
+			}
+			table {
+				width: 100%;
+				border-collapse: collapse;
+			}
+			th,
+			td {
+				text-align: left;
+				padding: 0.55rem;
+				border-bottom: 1px solid #e5e7eb;
+				vertical-align: top;
+			}
+			th {
+				background: #f8fafc;
+			}
+			a {
+				color: #0369a1;
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<header>
+				<h1>IOTM Participation Widget Documentation</h1>
+			</header>
+
+			<section>
+				<h2>1. Introduction</h2>
+				<p>
+					The IOTM Participation Widget is a Web Component for collecting
+					heritage-related submissions. It can be embedded in any frontend stack
+					that can render HTML custom elements.
+				</p>
+			</section>
+
+			<section>
+				<h2>2. Installation / Usage</h2>
+				<p>Load the widget module:</p>
+				<pre><code>&lt;script type="module" src="/app/index.js"&gt;&lt;/script&gt;</code></pre>
+				<p>Then place the element:</p>
+				<pre><code>&lt;iotm-participation-widget&gt;&lt;/iotm-participation-widget&gt;</code></pre>
+			</section>
+
+			<section>
+				<h2>3. Basic Example</h2>
+				<pre><code>&lt;iotm-participation-widget
+  api-base-url="https://example-api.org"
+  project-id="heritage-project"
+  locale="en"&gt;
+&lt;/iotm-participation-widget&gt;</code></pre>
+			</section>
+
+			<section>
+				<h2>4. Attributes</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>Attribute</th>
+							<th>Description</th>
+							<th>Example</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><code>api-base-url</code></td>
+							<td>Base URL for backend API endpoints.</td>
+							<td><code>https://example-api.org</code></td>
+						</tr>
+						<tr>
+							<td><code>project-id</code></td>
+							<td>Project identifier passed with uploads/submissions.</td>
+							<td><code>heritage-project</code></td>
+						</tr>
+						<tr>
+							<td><code>locale</code></td>
+							<td>Locale used for language resolution.</td>
+							<td><code>en</code>, <code>nl-NL</code></td>
+						</tr>
+						<tr>
+							<td><code>theme</code></td>
+							<td>Theme marker attribute for host styling logic.</td>
+							<td><code>light</code></td>
+						</tr>
+						<tr>
+							<td><code>allow-video</code></td>
+							<td>Enable or disable video uploads.</td>
+							<td><code>true</code></td>
+						</tr>
+						<tr>
+							<td><code>allow-audio</code></td>
+							<td>Enable or disable audio uploads.</td>
+							<td><code>true</code></td>
+						</tr>
+						<tr>
+							<td><code>allow-image</code></td>
+							<td>Enable or disable image uploads.</td>
+							<td><code>true</code></td>
+						</tr>
+						<tr>
+							<td><code>max-file-size</code></td>
+							<td>Maximum file size in bytes per upload item.</td>
+							<td><code>10485760</code></td>
+						</tr>
+						<tr>
+							<td><code>organization-name</code></td>
+							<td>Organization label shown in widget header/about context.</td>
+							<td><code>City Archive</code></td>
+						</tr>
+						<tr>
+							<td><code>header-title</code></td>
+							<td>Header title shown in the widget shell.</td>
+							<td><code>Share Your Story</code></td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+			<section>
+				<h2>5. Properties</h2>
+				<p>
+					The widget exposes JavaScript properties. A common property for
+					consumers is <code>translations</code> for partial text overrides.
+				</p>
+				<pre><code>const widget = document.querySelector("iotm-participation-widget");
+
+widget.translations = {
+  buttons: {
+    continue: {
+      en: "Continue",
+      nl: "Verder"
+    }
+  }
+};</code></pre>
+			</section>
+
+			<section>
+				<h2>6. Internationalization</h2>
+				<ul>
+					<li><code>locale</code> controls active language.</li>
+					<li>English and Dutch are supported.</li>
+					<li><code>en*</code> resolves to English, <code>nl*</code> to Dutch.</li>
+					<li>Unknown locales fall back to English.</li>
+					<li>Partial translation overrides are merged with defaults.</li>
+				</ul>
+				<pre><code>locale="en"
+locale="nl"
+locale="en-GB"
+locale="nl-NL"</code></pre>
+			</section>
+
+			<section>
+				<h2>7. Styling</h2>
+				<h3>CSS Custom Properties</h3>
+				<pre><code>iotm-participation-widget {
+  --iotm-color-primary: #2b6cb0;
+}</code></pre>
+				<h3>CSS Parts</h3>
+				<pre><code>iotm-participation-widget::part(header) {
+  background: #2b6cb0;
+}</code></pre>
+				<p>Exposed parts:</p>
+				<ul>
+					<li><code>shell</code></li>
+					<li><code>header</code></li>
+					<li><code>sidebar</code></li>
+					<li><code>viewport</code></li>
+					<li><code>content</code></li>
+					<li><code>modal</code></li>
+					<li><code>modal-backdrop</code></li>
+					<li><code>button</code></li>
+					<li><code>input</code></li>
+					<li><code>upload-dropzone</code></li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>8. Consumer Integration</h2>
+				<p>The widget can be embedded inline or inside host-controlled layouts:</p>
+				<ul>
+					<li>inline page sections</li>
+					<li>consumer-owned dialogs</li>
+					<li>CMS pages</li>
+					<li>SPA frameworks</li>
+				</ul>
+				<p><a href="/example/">See the consumer integration example</a></p>
+			</section>
+
+			<section>
+				<h2>9. Accessibility</h2>
+				<ul>
+					<li>Keyboard navigation through form controls and steps</li>
+					<li>Semantic HTML in step and form sections</li>
+					<li>Accessible internal modal behavior</li>
+					<li>Clear validation and status feedback</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>10. Architecture Overview</h2>
+				<ul>
+					<li>Web Component custom element</li>
+					<li>Shadow DOM encapsulation</li>
+					<li>REST API integration for uploads and submission payloads</li>
+					<li>Step-based upload and consent flow</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
