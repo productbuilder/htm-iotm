@@ -1,4 +1,4 @@
-# IOTM Participatie Widget -- Eerste Plan / Requirements
+# Timemap Uploader - IOTM Participatie Widget -- Eerste Plan / Requirements
 
 ## 1. Doel van de app
 
@@ -67,7 +67,7 @@ De eerste versie wordt bewust **zo simpel mogelijk** opgezet:
 
 Een **custom element** als hoofdcomponent:
 
-`<iotm-participation-widget>`
+`<timemap-uploader>`
 
 Deze component: - draait in Shadow DOM - leest configuratie uit HTML
 attributes - reflecteert attributes ↔ properties - schaalt naar de

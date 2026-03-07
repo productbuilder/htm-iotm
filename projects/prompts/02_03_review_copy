@@ -1,0 +1,32 @@
+Review the English and Dutch UI copy in the widget for consistency, clarity, and UX quality.
+
+Goal:
+Improve the wording quality of both locales without changing the technical implementation unnecessarily.
+
+Check for:
+- consistent tone across all steps
+- consistent terminology for:
+  - contributor / submitter
+  - rights
+  - consent
+  - public use
+  - contact details
+  - metadata
+  - upload
+  - review / confirmation
+- clear and natural button labels
+- clear validation messages
+- natural Dutch wording, not overly literal translations
+- concise but understandable instructional text
+- consistent capitalization and punctuation
+
+Requirements:
+- Keep all code and structure in English
+- Only adjust translation content and any minimal wiring needed
+- Do not add new features
+- Preserve existing translation keys where practical unless cleanup is clearly beneficial
+
+Deliver:
+- improved translation text
+- summary of wording changes
+- note any wording decisions that affect UX consistency
