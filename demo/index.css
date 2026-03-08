@@ -8,7 +8,7 @@ body {
 }
 
 main {
-	max-width: 980px;
+	max-width: 1080px;
 	margin: 0 auto;
 	display: grid;
 	gap: 1.1rem;
