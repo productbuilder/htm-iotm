@@ -1,29 +1,25 @@
 import { customTranslations } from "./i18n.js";
 
-await import("../app/index.js");
+await import("../src/app/index.js");
 
 const consumerCopy = {
 	en: {
 		helperText:
-			"This consumer page owns the outer dialog. The widget remains a normal embeddable component and still manages only its own internal modals.",
+			"Host page controls the dialog container. Timemap Contributor stays embeddable and handles only its own internal flow.",
 		sectionTitle: "Consumer-controlled dialog embedding",
 		localeLabel: "Consumer locale",
-		openDialog: "Open participation widget",
+		openDialog: "Open Timemap Contributor",
 		closeDialog: "Close dialog",
-		dialogTitle: "Participation widget dialog",
-		dialogNote:
-			"Outer dialog open/close behavior is controlled by the host page. The About and privacy dialogs inside the widget are controlled by the widget itself.",
+		dialogTitle: "Timemap Contributor",
 	},
 	nl: {
 		helperText:
-			"Deze consumentpagina beheert de buitenste dialoog. De widget blijft een normale insluitbare component en beheert alleen zijn eigen interne modalvensters.",
+			"De hostpagina beheert de dialoogcontainer. Timemap Contributor blijft insluitbaar en beheert alleen zijn eigen interne flow.",
 		sectionTitle: "Insluiting in een consumentgestuurde dialoog",
 		localeLabel: "Consument-locale",
-		openDialog: "Open participatiewidget",
+		openDialog: "Open Timemap Contributor",
 		closeDialog: "Dialoog sluiten",
-		dialogTitle: "Dialoog met participatiewidget",
-		dialogNote:
-			"Openen en sluiten van de buitenste dialoog wordt beheerd door de hostpagina. De Over- en privacydialogen binnen de widget worden door de widget zelf beheerd.",
+		dialogTitle: "Dialoog met Timemap Contributor",
 	},
 };
 
@@ -46,7 +42,6 @@ function applyConsumerCopy() {
 	const heading = document.querySelector("#consumer-dialog-heading");
 	const localeLabel = document.querySelector("#consumer-locale-label");
 	const dialogTitle = document.querySelector("#consumer-dialog-title");
-	const dialogNote = document.querySelector("#consumer-dialog-note");
 
 	if (helper) helper.textContent = copy.helperText;
 	if (heading) heading.textContent = copy.sectionTitle;
@@ -54,7 +49,6 @@ function applyConsumerCopy() {
 	if (openButton) openButton.textContent = copy.openDialog;
 	if (closeButton) closeButton.textContent = copy.closeDialog;
 	if (dialogTitle) dialogTitle.textContent = copy.dialogTitle;
-	if (dialogNote) dialogNote.textContent = copy.dialogNote;
 
 	if (dialogWidget) {
 		dialogWidget.locale = localeSuffix;

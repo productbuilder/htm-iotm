@@ -10,7 +10,7 @@ const ACCEPT_BY_TYPE = {
 	audio: "audio/*",
 };
 
-export class IotmParticipationWidget extends HTMLElement {
+export class TimemapContributor extends HTMLElement {
 	static get observedAttributes() {
 		return Object.keys(ATTRIBUTE_MAP);
 	}
@@ -52,7 +52,7 @@ export class IotmParticipationWidget extends HTMLElement {
 		};
 
 		this.api = new ApiClient("");
-		const globalConfig = typeof window !== "undefined" ? window.IOTM_PARTICIPATION_WIDGET_CONFIG : null;
+		const globalConfig = typeof window !== "undefined" ? window.TIMEMAP_CONTRIBUTOR_CONFIG : null;
 		if (globalConfig?.translations) {
 			this.state.translations = globalConfig.translations;
 		}
@@ -787,44 +787,44 @@ export class IotmParticipationWidget extends HTMLElement {
 		this.shadowRoot.innerHTML = `
 			<style>
 				:host {
-					--iotm-color-bg: #f7f7f8;
-					--iotm-color-surface: #ffffff;
-					--iotm-color-text: #111827;
-					--iotm-color-muted: #4b5563;
-					--iotm-color-primary: #0f766e;
-					--iotm-color-danger: #b91c1c;
-					--iotm-spacing: 1rem;
-					--iotm-font: "Segoe UI", Tahoma, sans-serif;
-					--iotm-radius: 10px;
-					--iotm-border: 1px solid #d4d4d8;
-					--iotm-border-color: #d4d4d8;
-					--iotm-widget-height: min(82vh, 760px);
+					--timemap-color-bg: #f7f7f8;
+					--timemap-color-surface: #ffffff;
+					--timemap-color-text: #111827;
+					--timemap-color-muted: #4b5563;
+					--timemap-color-primary: #0f766e;
+					--timemap-color-danger: #b91c1c;
+					--timemap-spacing: 1rem;
+					--timemap-font: "Segoe UI", Tahoma, sans-serif;
+					--timemap-radius: 10px;
+					--timemap-border: 1px solid #d4d4d8;
+					--timemap-border-color: #d4d4d8;
+					--timemap-widget-height: min(74vh, 680px);
 					display: block;
 					min-height: 0;
-					color: var(--iotm-color-text);
-					font-family: var(--iotm-font);
+					color: var(--timemap-color-text);
+					font-family: var(--timemap-font);
 				}
 				* {
 					box-sizing: border-box;
 				}
 				.shell {
-					background: var(--iotm-color-bg);
-					border: var(--iotm-border);
-					border-radius: var(--iotm-radius);
+					background: var(--timemap-color-bg);
+					border: var(--timemap-border);
+					border-radius: var(--timemap-radius);
 					display: grid;
 					grid-template-columns: 260px minmax(0, 1fr);
 					grid-template-rows: auto 1fr;
-					height: var(--iotm-widget-height);
-					min-height: 560px;
+					height: var(--timemap-widget-height);
+					min-height: 520px;
 					max-height: 100%;
 					min-width: 0;
 					overflow: hidden;
 				}
 				.header {
 					grid-column: 1 / -1;
-					padding: var(--iotm-spacing);
-					background: var(--iotm-color-surface);
-					border-bottom: var(--iotm-border);
+					padding: var(--timemap-spacing);
+					background: var(--timemap-color-surface);
+					border-bottom: var(--timemap-border);
 					display: flex;
 					align-items: center;
 					justify-content: space-between;
@@ -837,9 +837,9 @@ export class IotmParticipationWidget extends HTMLElement {
 					gap: 0.6rem;
 				}
 				.sidebar {
-					padding: var(--iotm-spacing);
-					border-right: var(--iotm-border);
-					background: var(--iotm-color-surface);
+					padding: var(--timemap-spacing);
+					border-right: var(--timemap-border);
+					background: var(--timemap-color-surface);
 					display: flex;
 					flex-direction: column;
 					gap: 0.5rem;
@@ -848,18 +848,18 @@ export class IotmParticipationWidget extends HTMLElement {
 					overflow: auto;
 				}
 				.viewport {
-					padding: var(--iotm-spacing);
-					background: var(--iotm-color-bg);
+					padding: var(--timemap-spacing);
+					background: var(--timemap-color-bg);
 					min-height: 0;
 					min-width: 0;
 					overflow-x: hidden;
 					overflow-y: auto;
 				}
 				.content {
-					background: var(--iotm-color-surface);
-					border: var(--iotm-border);
-					border-radius: var(--iotm-radius);
-					padding: var(--iotm-spacing);
+					background: var(--timemap-color-surface);
+					border: var(--timemap-border);
+					border-radius: var(--timemap-radius);
+					padding: var(--timemap-spacing);
 					min-width: 0;
 				}
 				.actions {
@@ -877,7 +877,7 @@ export class IotmParticipationWidget extends HTMLElement {
 					width: 100%;
 					padding: 0.6rem 0.65rem;
 					border-radius: 8px;
-					border: var(--iotm-border);
+					border: var(--timemap-border);
 					font: inherit;
 				}
 				textarea {
@@ -886,7 +886,7 @@ export class IotmParticipationWidget extends HTMLElement {
 				}
 				button {
 					border-radius: 8px;
-					border: var(--iotm-border);
+					border: var(--timemap-border);
 					background: #fff;
 					padding: 0.5rem 0.8rem;
 					font: inherit;
@@ -898,7 +898,7 @@ export class IotmParticipationWidget extends HTMLElement {
 				button:focus-visible,
 				input:focus-visible,
 				textarea:focus-visible {
-					outline: 2px solid var(--iotm-color-primary);
+					outline: 2px solid var(--timemap-color-primary);
 					outline-offset: 2px;
 				}
 				.step {
@@ -906,7 +906,7 @@ export class IotmParticipationWidget extends HTMLElement {
 					background: #fff;
 				}
 				.step.active {
-					border-color: var(--iotm-color-primary);
+					border-color: var(--timemap-color-primary);
 					background: #e6fffb;
 				}
 				.step.done {
@@ -927,7 +927,7 @@ export class IotmParticipationWidget extends HTMLElement {
 					margin: 1rem 0 0;
 				}
 				.upload-list li {
-					border: var(--iotm-border);
+					border: var(--timemap-border);
 					border-radius: 8px;
 					padding: 0.75rem;
 					display: grid;
@@ -954,7 +954,7 @@ export class IotmParticipationWidget extends HTMLElement {
 					margin-top: 0.2rem;
 				}
 				.error {
-					color: var(--iotm-color-danger);
+					color: var(--timemap-color-danger);
 					font-weight: 600;
 				}
 				.status {
@@ -979,7 +979,7 @@ export class IotmParticipationWidget extends HTMLElement {
 					}
 					.sidebar {
 						border-right: 0;
-						border-bottom: var(--iotm-border);
+						border-bottom: var(--timemap-border);
 						display: grid;
 						grid-auto-flow: column;
 						grid-auto-columns: minmax(130px, 1fr);

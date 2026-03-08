@@ -3,16 +3,31 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>IOTM Widget Consumer Example</title>
+		<title>Timemap Contributor Consumer Demo</title>
+		<link rel="stylesheet" href="../public-header.css" />
 		<link rel="stylesheet" href="./index.css" />
 	</head>
 	<body>
+		<div class="site-header">
+			<div class="site-header-inner">
+				<div class="site-brand">Timemap Contributor</div>
+				<nav class="site-nav" aria-label="Primary navigation">
+					<a href="/">Home</a>
+					<a href="/docs/">Documentation</a>
+					<a href="/demo/" class="is-active" aria-current="page">Demo</a>
+				</nav>
+			</div>
+		</div>
 		<main>
-			<h1>Consumer Integration Example</h1>
+			<h1>Timemap Contributor Consumer Demo</h1>
 			<p id="consumer-helper-text"></p>
 
 			<section>
 				<h2 id="consumer-dialog-heading"></h2>
+				<p>
+					Host page controls this outer dialog. The widget is embedded inside and
+					keeps its own internal flow and modal behavior.
+				</p>
 				<div class="consumer-toolbar">
 					<label for="consumer-locale" id="consumer-locale-label"></label>
 					<select id="consumer-locale">
@@ -27,29 +42,31 @@
 							<h3 id="consumer-dialog-title"></h3>
 							<button id="close-widget-dialog" type="button"></button>
 						</header>
-						<p id="consumer-dialog-note"></p>
-						<iotm-participation-widget
+						<timemap-contributor
 							id="dialog-widget"
-							class="brand-theme-alt"
 							locale="en-US"
 							project-id="example-dialog"
 							organization-name="City Heritage Lab"
 							header-title="Community Memory Collection"
 							about-title="About this community collection"
-						></iotm-participation-widget>
+						></timemap-contributor>
 					</div>
 				</dialog>
 			</section>
 
 			<section>
 				<h2>Inline embed remains available (`locale="en-US"`)</h2>
-				<iotm-participation-widget
+				<p>
+					This inline instance uses defaults with no consumer-specific visual
+					theme classes.
+				</p>
+				<timemap-contributor
 					id="default-widget"
 					locale="en-US"
 					project-id="example"
 					organization-name="Example Museum"
 					header-title="Share Your Story"
-				></iotm-participation-widget>
+				></timemap-contributor>
 			</section>
 		</main>
 		<script type="module" src="./index.js"></script>

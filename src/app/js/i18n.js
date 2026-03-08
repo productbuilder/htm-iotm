@@ -128,7 +128,7 @@ export const defaultMessages = {
 		},
 	},
 	about: {
-		title: { en: "About this participation widget", nl: "Over deze participatiewidget" },
+		title: { en: "About Timemap Contributor", nl: "Over Timemap Contributor" },
 		summary: {
 			en: "This widget helps {organization} collect local heritage stories and media from the community.",
 			nl: "Deze widget helpt {organization} om lokale erfgoedverhalen en media uit de gemeenschap te verzamelen.",

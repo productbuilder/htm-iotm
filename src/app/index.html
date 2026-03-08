@@ -3,19 +3,19 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>IOTM Participation Widget MVP</title>
+		<title>Timemap Contributor MVP</title>
 		<link rel="stylesheet" href="./css/index.css" />
 	</head>
 	<body>
 		<main class="page-shell">
-			<h1>Timemap Uploader / IOTM Participation Widget</h1>
+			<h1>Timemap Contributor</h1>
 			<p>This page demonstrates locale-based widget text rendering.</p>
 
 			<section>
 				<h2>English widget (`locale="en-US"`)</h2>
-				<iotm-participation-widget
+				<timemap-contributor
 					api-base-url="https://example.org/api"
-					project-id="htm-iotm"
+					project-id="htm-timemap"
 					locale="en-US"
 					theme="light"
 					allow-video="true"
@@ -24,14 +24,14 @@
 					max-file-size="10485760"
 					organization-name="Hilversum Time Machine"
 					header-title="Share Your Story"
-				></iotm-participation-widget>
+				></timemap-contributor>
 			</section>
 
 			<section>
 				<h2>Dutch widget (`locale="nl-NL"`)</h2>
-				<iotm-participation-widget
+				<timemap-contributor
 					api-base-url="https://example.org/api"
-					project-id="htm-iotm"
+					project-id="htm-timemap"
 					locale="nl-NL"
 					theme="light"
 					allow-video="true"
@@ -40,14 +40,14 @@
 					max-file-size="10485760"
 					organization-name="Hilversum Time Machine"
 					header-title="Deel jouw verhaal"
-				></iotm-participation-widget>
+				></timemap-contributor>
 			</section>
 
 			<section>
 				<h2>Fallback widget (`locale="fr"` falls back to English)</h2>
-				<iotm-participation-widget
+				<timemap-contributor
 					api-base-url="https://example.org/api"
-					project-id="htm-iotm"
+					project-id="htm-timemap"
 					locale="fr"
 					theme="light"
 					allow-video="true"
@@ -56,7 +56,7 @@
 					max-file-size="10485760"
 					organization-name="Hilversum Time Machine"
 					header-title="Share Your Story"
-				></iotm-participation-widget>
+				></timemap-contributor>
 			</section>
 		</main>
 		<script type="module" src="./index.js"></script>

@@ -76,8 +76,8 @@ export class WidgetModal extends HTMLElement {
 					width: min(600px, 94vw);
 					max-height: 90vh;
 					overflow: auto;
-					border-radius: var(--iotm-radius, 10px);
-					border: 1px solid var(--iotm-border-color, #d4d4d8);
+					border-radius: var(--timemap-radius, 10px);
+					border: 1px solid var(--timemap-border-color, #d4d4d8);
 					padding: 1rem;
 				}
 				@media (max-width: 720px) {
@@ -94,11 +94,11 @@ export class WidgetModal extends HTMLElement {
 					gap: 0.75rem;
 				}
 				button {
-					border: 1px solid var(--iotm-border-color, #d4d4d8);
+					border: 1px solid var(--timemap-border-color, #d4d4d8);
 					background: #fff;
 					padding: 0.45rem 0.75rem;
 					cursor: pointer;
-					border-radius: var(--iotm-radius, 10px);
+					border-radius: var(--timemap-radius, 10px);
 				}
 			</style>
 			<div class="backdrop" part="modal-backdrop" data-backdrop="true" role="presentation">

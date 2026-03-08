@@ -3,8 +3,12 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>IOTM Participation Widget</title>
+		<title>Timemap Contributor</title>
+		<link rel="stylesheet" href="./public-header.css" />
 		<style>
+			:root {
+				color-scheme: light;
+			}
 			body {
 				margin: 0;
 				font-family: "Segoe UI", Tahoma, sans-serif;
@@ -13,11 +17,11 @@
 				line-height: 1.55;
 			}
 			main {
-				max-width: 960px;
+				max-width: 980px;
 				margin: 0 auto;
-				padding: 2rem 1rem 3rem;
+				padding: 1.2rem 1rem 3rem;
 				display: grid;
-				gap: 1.5rem;
+				gap: 1.2rem;
 			}
 			header,
 			section {
@@ -28,7 +32,7 @@
 			}
 			h1,
 			h2 {
-				margin: 0 0 0.6rem;
+				margin: 0 0 0.55rem;
 			}
 			p,
 			ul,
@@ -52,46 +56,51 @@
 			code {
 				font-family: Consolas, Monaco, monospace;
 			}
-			.links {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 0.8rem;
-			}
 			a {
 				color: #0369a1;
 			}
 		</style>
 	</head>
 	<body>
+		<div class="site-header">
+			<div class="site-header-inner">
+				<div class="site-brand">Timemap Contributor</div>
+				<nav class="site-nav" aria-label="Primary navigation">
+					<a href="/" class="is-active" aria-current="page">Home</a>
+					<a href="/docs/">Documentation</a>
+					<a href="/demo/">Demo</a>
+				</nav>
+			</div>
+		</div>
+
 		<main>
 			<header>
-				<h1>IOTM Participation Widget</h1>
+				<h1>Timemap Contributor</h1>
 				<p>
-					Embeddable participation flow for collecting community heritage
-					contributions.
+					Embeddable contribution flow for collecting community heritage media and
+					context.
 				</p>
 			</header>
 
 			<section>
 				<h2>Introduction</h2>
 				<p>
-					The widget provides a consistent way to gather local heritage
-					contributions across websites and applications. It helps organizations
-					collect structured submissions without building a custom upload flow
-					for each channel.
+					Timemap Contributor helps heritage organizations collect structured
+					community submissions without building a custom upload flow for each
+					channel or website.
 				</p>
 			</section>
 
 			<section>
-				<h2>What the Widget Does</h2>
-				<p>Contributors can submit heritage material such as:</p>
+				<h2>What Timemap Contributor Does</h2>
+				<p>Contributors can submit:</p>
 				<ul>
 					<li>photos</li>
 					<li>videos</li>
 					<li>audio recordings</li>
 					<li>written descriptions</li>
 				</ul>
-				<p>The widget also collects:</p>
+				<p>The flow also gathers:</p>
 				<ul>
 					<li>metadata</li>
 					<li>rights consent</li>
@@ -126,7 +135,7 @@
 
 			<section>
 				<h2>Integration</h2>
-				<p>The widget can be embedded in:</p>
+				<p>Timemap Contributor can be embedded in:</p>
 				<ul>
 					<li>plain HTML pages</li>
 					<li>CMS platforms</li>
@@ -135,19 +144,11 @@
 					<li>Angular applications</li>
 					<li>server-rendered websites</li>
 				</ul>
-				<pre><code>&lt;iotm-participation-widget
+				<pre><code>&lt;timemap-contributor
   api-base-url="https://example-api.org"
   project-id="heritage-project"
   locale="en"&gt;
-&lt;/iotm-participation-widget&gt;</code></pre>
-			</section>
-
-			<section>
-				<h2>Links</h2>
-				<div class="links">
-					<a href="./src/docs/index.html">Developer documentation</a>
-					<a href="./src/example/index.html">Consumer example</a>
-				</div>
+&lt;/timemap-contributor&gt;</code></pre>
 			</section>
 		</main>
 	</body>

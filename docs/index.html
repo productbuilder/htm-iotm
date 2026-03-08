@@ -3,7 +3,8 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>IOTM Participation Widget Documentation</title>
+		<title>Timemap Contributor Documentation</title>
+		<link rel="stylesheet" href="../public-header.css" />
 		<style>
 			body {
 				margin: 0;
@@ -70,35 +71,45 @@
 		</style>
 	</head>
 	<body>
+		<div class="site-header">
+			<div class="site-header-inner">
+				<div class="site-brand">Timemap Contributor</div>
+				<nav class="site-nav" aria-label="Primary navigation">
+					<a href="/">Home</a>
+					<a href="/docs/" class="is-active" aria-current="page">Documentation</a>
+					<a href="/demo/">Demo</a>
+				</nav>
+			</div>
+		</div>
 		<main>
 			<header>
-				<h1>IOTM Participation Widget Documentation</h1>
+				<h1>Timemap Contributor Documentation</h1>
 			</header>
 
 			<section>
 				<h2>1. Introduction</h2>
 				<p>
-					The IOTM Participation Widget is a Web Component for collecting
-					heritage-related submissions. It can be embedded in any frontend stack
-					that can render HTML custom elements.
+					Timemap Contributor is a Web Component for collecting heritage-related
+					submissions. It can be embedded in any frontend stack that can render
+					HTML custom elements.
 				</p>
 			</section>
 
 			<section>
 				<h2>2. Installation / Usage</h2>
 				<p>Load the widget module:</p>
-				<pre><code>&lt;script type="module" src="/app/index.js"&gt;&lt;/script&gt;</code></pre>
+				<pre><code>&lt;script type="module" src="/src/app/index.js"&gt;&lt;/script&gt;</code></pre>
 				<p>Then place the element:</p>
-				<pre><code>&lt;iotm-participation-widget&gt;&lt;/iotm-participation-widget&gt;</code></pre>
+				<pre><code>&lt;timemap-contributor&gt;&lt;/timemap-contributor&gt;</code></pre>
 			</section>
 
 			<section>
 				<h2>3. Basic Example</h2>
-				<pre><code>&lt;iotm-participation-widget
+				<pre><code>&lt;timemap-contributor
   api-base-url="https://example-api.org"
   project-id="heritage-project"
   locale="en"&gt;
-&lt;/iotm-participation-widget&gt;</code></pre>
+&lt;/timemap-contributor&gt;</code></pre>
 			</section>
 
 			<section>
@@ -172,7 +183,7 @@
 					The widget exposes JavaScript properties. A common property for
 					consumers is <code>translations</code> for partial text overrides.
 				</p>
-				<pre><code>const widget = document.querySelector("iotm-participation-widget");
+				<pre><code>const widget = document.querySelector("timemap-contributor");
 
 widget.translations = {
   buttons: {
@@ -202,11 +213,11 @@ locale="nl-NL"</code></pre>
 			<section>
 				<h2>7. Styling</h2>
 				<h3>CSS Custom Properties</h3>
-				<pre><code>iotm-participation-widget {
-  --iotm-color-primary: #2b6cb0;
+				<pre><code>timemap-contributor {
+  --timemap-color-primary: #2b6cb0;
 }</code></pre>
 				<h3>CSS Parts</h3>
-				<pre><code>iotm-participation-widget::part(header) {
+				<pre><code>timemap-contributor::part(header) {
   background: #2b6cb0;
 }</code></pre>
 				<p>Exposed parts:</p>
@@ -233,7 +244,7 @@ locale="nl-NL"</code></pre>
 					<li>CMS pages</li>
 					<li>SPA frameworks</li>
 				</ul>
-				<p><a href="/example/">See the consumer integration example</a></p>
+				<p><a href="/demo/">See the consumer integration demo</a></p>
 			</section>
 
 			<section>
@@ -254,6 +265,7 @@ locale="nl-NL"</code></pre>
 					<li>REST API integration for uploads and submission payloads</li>
 					<li>Step-based upload and consent flow</li>
 				</ul>
+				<p><a href="/">Back to landing page</a></p>
 			</section>
 		</main>
 	</body>
