@@ -12,6 +12,7 @@ main {
 	margin: 0 auto;
 	display: grid;
 	gap: 1.1rem;
+	padding:1rem;
 }
 
 section {
