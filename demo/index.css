@@ -1,62 +1,4 @@
-/* Demo-only controls */
-.consumer-toolbar {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	gap: 0.65rem;
-}
-
-#consumer-locale,
-#open-widget-dialog,
-#close-widget-dialog {
-	padding: 0.4rem 0.62rem;
-	border-radius: 8px;
-	border: 1px solid #cbd5e1;
-	background: #ffffff;
-	color: #0f172a;
-}
-
-#open-widget-dialog,
-#close-widget-dialog {
-	cursor: pointer;
-}
-
-/* Consumer dialog */
-#consumer-widget-dialog {
-	width: min(980px, 95vw);
-	height: min(84vh, 740px);
-	max-height: 84vh;
-	padding: 0;
-	border: 0;
-	background: transparent;
-	overflow: hidden;
-}
-
-#consumer-widget-dialog::backdrop {
-	background: rgba(2, 6, 23, 0.52);
-}
-
-.dialog-frame {
-	height: 100%;
-	min-height: 0;
-	display: grid;
-	grid-template-rows: auto minmax(0, 1fr);
-	gap: 0.55rem;
-	padding: 0.75rem;
-	background: #f8fafc;
-	border: 1px solid #cbd5e1;
-	border-radius: 12px;
-	overflow: hidden;
-}
-
-.dialog-header {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	gap: 0.75rem;
-}
-
-/* Demo host-side widget overrides */
+/* Demo host-side widget styling for timemap-contributor only */
 timemap-contributor {
 	display: block;
 }
@@ -66,7 +8,7 @@ timemap-contributor {
 	min-height: 0;
 	--timemap-widget-height: 100%;
 	--timemap-color-primary: #4b5563;
-	--timemap-radius: 0.4rem;
+	--timemap-radius: 0.25rem;
 }
 
 #dialog-widget::part(header) {
@@ -74,16 +16,5 @@ timemap-contributor {
 }
 
 #dialog-widget::part(button) {
-	border-radius: 8px;
-}
-
-@media (max-width: 760px) {
-	#consumer-widget-dialog {
-		width: 98vw;
-		height: 90vh;
-	}
-
-	.dialog-frame {
-		padding: 0.55rem;
-	}
+	border-radius: 0.25rem;
 }
