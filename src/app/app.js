@@ -798,7 +798,9 @@ export class IotmParticipationWidget extends HTMLElement {
 					--iotm-radius: 10px;
 					--iotm-border: 1px solid #d4d4d8;
 					--iotm-border-color: #d4d4d8;
+					--iotm-widget-height: min(82vh, 760px);
 					display: block;
+					min-height: 0;
 					color: var(--iotm-color-text);
 					font-family: var(--iotm-font);
 				}
@@ -812,7 +814,11 @@ export class IotmParticipationWidget extends HTMLElement {
 					display: grid;
 					grid-template-columns: 260px minmax(0, 1fr);
 					grid-template-rows: auto 1fr;
-					min-height: 640px;
+					height: var(--iotm-widget-height);
+					min-height: 560px;
+					max-height: 100%;
+					min-width: 0;
+					overflow: hidden;
 				}
 				.header {
 					grid-column: 1 / -1;
@@ -823,6 +829,7 @@ export class IotmParticipationWidget extends HTMLElement {
 					align-items: center;
 					justify-content: space-between;
 					gap: 1rem;
+					min-width: 0;
 				}
 				.header-actions {
 					display: flex;
@@ -836,21 +843,29 @@ export class IotmParticipationWidget extends HTMLElement {
 					display: flex;
 					flex-direction: column;
 					gap: 0.5rem;
+					min-height: 0;
+					min-width: 0;
+					overflow: auto;
 				}
 				.viewport {
 					padding: var(--iotm-spacing);
 					background: var(--iotm-color-bg);
-					overflow: auto;
+					min-height: 0;
+					min-width: 0;
+					overflow-x: hidden;
+					overflow-y: auto;
 				}
 				.content {
 					background: var(--iotm-color-surface);
 					border: var(--iotm-border);
 					border-radius: var(--iotm-radius);
 					padding: var(--iotm-spacing);
+					min-width: 0;
 				}
 				.actions {
 					margin-top: 1rem;
 					display: flex;
+					flex-wrap: wrap;
 					gap: 0.75rem;
 				}
 				label {
@@ -919,6 +934,7 @@ export class IotmParticipationWidget extends HTMLElement {
 					grid-template-columns: 1fr auto auto;
 					gap: 0.75rem;
 					align-items: center;
+					min-width: 0;
 				}
 				.upload-list img {
 					width: 72px;
@@ -958,16 +974,39 @@ export class IotmParticipationWidget extends HTMLElement {
 					.shell {
 						grid-template-columns: 1fr;
 						grid-template-rows: auto auto 1fr;
+						height: min(86vh, 740px);
+						min-height: 520px;
 					}
 					.sidebar {
 						border-right: 0;
 						border-bottom: var(--iotm-border);
 						display: grid;
-						grid-template-columns: repeat(3, minmax(0, 1fr));
+						grid-auto-flow: column;
+						grid-auto-columns: minmax(130px, 1fr);
 						gap: 0.4rem;
+						overflow-x: auto;
+						overflow-y: hidden;
+						padding-bottom: 0.75rem;
 					}
 					.step {
 						font-size: 0.9rem;
+						white-space: nowrap;
+					}
+				}
+				@media (max-width: 620px) {
+					.shell {
+						height: min(88vh, 700px);
+						min-height: 500px;
+					}
+					.header {
+						flex-wrap: wrap;
+					}
+					.header-actions {
+						width: 100%;
+						justify-content: space-between;
+					}
+					.upload-list li {
+						grid-template-columns: 1fr;
 					}
 				}
 			</style>
