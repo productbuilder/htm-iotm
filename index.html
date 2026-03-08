@@ -66,9 +66,9 @@
 			<div class="site-header-inner">
 				<div class="site-brand">Timemap Contributor</div>
 				<nav class="site-nav" aria-label="Primary navigation">
-					<a href="/htm-iotm/" class="is-active" aria-current="page">Home</a>
-					<a href="/htm-iotm/docs/">Documentation</a>
-					<a href="/htm-iotm/demo/">Demo</a>
+					<a href="./" class="is-active" aria-current="page">Home</a>
+					<a href="./docs/">Documentation</a>
+					<a href="./demo/">Demo</a>
 				</nav>
 			</div>
 		</div>
@@ -89,6 +89,19 @@
 					community submissions without building a custom upload flow for each
 					channel or website.
 				</p>
+			</section>
+
+			<section>
+				<h2>Plug-and-Play Usage</h2>
+				<p>
+					Load the widget script once, place the custom element on the page, and
+					start collecting contributions.
+				</p>
+				<pre><code>&lt;timemap-contributor
+  api-base-url="https://example-api.org"
+  project-id="heritage-project"
+  locale="en"&gt;
+&lt;/timemap-contributor&gt;</code></pre>
 			</section>
 
 			<section>
@@ -135,7 +148,7 @@
 
 			<section>
 				<h2>Integration</h2>
-				<p>Timemap Contributor can be embedded in:</p>
+				<p>Timemap Contributor can also be embedded in:</p>
 				<ul>
 					<li>plain HTML pages</li>
 					<li>CMS platforms</li>
@@ -144,11 +157,6 @@
 					<li>Angular applications</li>
 					<li>server-rendered websites</li>
 				</ul>
-				<pre><code>&lt;timemap-contributor
-  api-base-url="https://example-api.org"
-  project-id="heritage-project"
-  locale="en"&gt;
-&lt;/timemap-contributor&gt;</code></pre>
 			</section>
 		</main>
 	</body>

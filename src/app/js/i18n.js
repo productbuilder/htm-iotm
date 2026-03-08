@@ -23,6 +23,7 @@ export const defaultMessages = {
 		no: { en: "No", nl: "Nee" },
 		none: { en: "(none)", nl: "(geen)" },
 		notAvailable: { en: "n/a", nl: "n.v.t." },
+		stepCounter: { en: "Step {current} of {total}", nl: "Stap {current} van {total}" },
 	},
 	status: {
 		checkingApi: { en: "Checking API availability...", nl: "API-beschikbaarheid controleren..." },

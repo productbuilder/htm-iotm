@@ -561,10 +561,21 @@ export class TimemapContributor extends HTMLElement {
 		return this.renderStepSuccess();
 	}
 
+	renderStepHeader(title) {
+		const total = STEP_DEFINITIONS.length;
+		const current = Math.min(this.state.currentStep + 1, total);
+		return `
+			<div class="step-view-header">
+				<h2 data-main-heading="true" tabindex="-1">${escapeHtml(title)}</h2>
+				<span class="step-counter">${escapeHtml(this.t("common.stepCounter", { current, total }))}</span>
+			</div>
+		`;
+	}
+
 	renderStepIntroduction() {
 		return `
 			<section part="content">
-				<h2 data-main-heading="true" tabindex="-1">${escapeHtml(this.t("intro.title"))}</h2>
+				${this.renderStepHeader(this.t("intro.title"))}
 				<p>${escapeHtml(this.t("intro.descriptionOne"))}</p>
 				<p>${escapeHtml(this.t("intro.descriptionTwo"))}</p>
 				${this.renderApiStatus()}
@@ -580,7 +591,7 @@ export class TimemapContributor extends HTMLElement {
 		const error = this.state.stepErrors.uploads || this.state.globalError;
 		return `
 			<section part="content">
-				<h2 data-main-heading="true" tabindex="-1">${escapeHtml(this.t("upload.title"))}</h2>
+				${this.renderStepHeader(this.t("upload.title"))}
 				<p>${escapeHtml(this.t("upload.instruction", { maxSize: formatFileSize(this.state.config.maxFileSize) }))}</p>
 				<label for="file-input">${escapeHtml(this.t("upload.chooseFiles"))}</label>
 				<input part="input" id="file-input" type="file" multiple accept="${accepted}" data-file-input="true" />
@@ -625,7 +636,7 @@ export class TimemapContributor extends HTMLElement {
 		const error = this.state.stepErrors.metadata;
 		return `
 			<section part="content">
-				<h2 data-main-heading="true" tabindex="-1">${escapeHtml(this.t("metadata.title"))}</h2>
+				${this.renderStepHeader(this.t("metadata.title"))}
 				<p>${escapeHtml(this.t("metadata.instruction"))}</p>
 				<label for="meta-title">${escapeHtml(this.t("metadata.titleLabel"))}</label>
 				<input part="input" id="meta-title" data-field="metadata.title" value="${escapeHtml(this.state.metadata.title)}" />
@@ -647,7 +658,7 @@ export class TimemapContributor extends HTMLElement {
 	renderStepConsent() {
 		return `
 			<section part="content">
-				<h2 data-main-heading="true" tabindex="-1">${escapeHtml(this.t("consent.title"))}</h2>
+				${this.renderStepHeader(this.t("consent.title"))}
 				<p>${escapeHtml(this.t("consent.instruction"))}</p>
 				<div class="check-row">
 					<input part="input" id="rightsDeclaration" type="checkbox" data-field="consent.rightsDeclaration" ${this.state.consent.rightsDeclaration ? "checked" : ""} />
@@ -671,7 +682,7 @@ export class TimemapContributor extends HTMLElement {
 	renderStepContact() {
 		return `
 			<section part="content">
-				<h2 data-main-heading="true" tabindex="-1">${escapeHtml(this.t("contact.title"))}</h2>
+				${this.renderStepHeader(this.t("contact.title"))}
 				<p>${escapeHtml(this.t("contact.instruction"))}</p>
 				<label for="contact-name">${escapeHtml(this.t("contact.nameLabel"))}</label>
 				<input part="input" id="contact-name" data-field="contact.name" value="${escapeHtml(this.state.contact.name)}" />
@@ -693,7 +704,7 @@ export class TimemapContributor extends HTMLElement {
 			.join("");
 		return `
 			<form part="content">
-				<h2 data-main-heading="true" tabindex="-1">${escapeHtml(this.t("review.title"))}</h2>
+				${this.renderStepHeader(this.t("review.title"))}
 				<p>${escapeHtml(this.t("review.intro"))}</p>
 				<h3>${escapeHtml(this.t("review.mediaFiles"))}</h3>
 				<ul>${summaryUploads || `<li>${escapeHtml(this.t("upload.empty"))}</li>`}</ul>
@@ -721,7 +732,7 @@ export class TimemapContributor extends HTMLElement {
 	renderStepSuccess() {
 		return `
 			<section part="content">
-				<h2 data-main-heading="true" tabindex="-1">${escapeHtml(this.t("success.title"))}</h2>
+				${this.renderStepHeader(this.t("success.title"))}
 				<p>${escapeHtml(this.t("success.message"))}</p>
 				<p>
 					${escapeHtml(this.t("success.reference"))}
@@ -787,17 +798,17 @@ export class TimemapContributor extends HTMLElement {
 		this.shadowRoot.innerHTML = `
 			<style>
 				:host {
-					--timemap-color-bg: #f7f7f8;
-					--timemap-color-surface: #ffffff;
+					--timemap-color-bg: #f3f4f6;
+					--timemap-color-surface: #fcfcfd;
 					--timemap-color-text: #111827;
 					--timemap-color-muted: #4b5563;
-					--timemap-color-primary: #0f766e;
-					--timemap-color-danger: #b91c1c;
+					--timemap-color-primary: #4b5563;
+					--timemap-color-danger: #991b1b;
 					--timemap-spacing: 1rem;
 					--timemap-font: "Segoe UI", Tahoma, sans-serif;
 					--timemap-radius: 10px;
-					--timemap-border: 1px solid #d4d4d8;
-					--timemap-border-color: #d4d4d8;
+					--timemap-border: 1px solid #d1d5db;
+					--timemap-border-color: #d1d5db;
 					--timemap-widget-height: min(74vh, 680px);
 					display: block;
 					min-height: 0;
@@ -862,6 +873,21 @@ export class TimemapContributor extends HTMLElement {
 					padding: var(--timemap-spacing);
 					min-width: 0;
 				}
+				.step-view-header {
+					display: flex;
+					align-items: baseline;
+					justify-content: space-between;
+					gap: 0.75rem;
+					margin-bottom: 0.75rem;
+				}
+				.step-view-header h2 {
+					margin: 0;
+				}
+				.step-counter {
+					font-size: 0.85rem;
+					color: var(--timemap-color-muted);
+					white-space: nowrap;
+				}
 				.actions {
 					margin-top: 1rem;
 					display: flex;
@@ -907,17 +933,20 @@ export class TimemapContributor extends HTMLElement {
 				}
 				.step.active {
 					border-color: var(--timemap-color-primary);
-					background: #e6fffb;
+					background: #f3f4f6;
 				}
 				.step.done {
 					opacity: 0.8;
 				}
 				.dropzone {
 					margin-top: 0.75rem;
-					padding: 1.2rem;
-					border: 2px dashed #94a3b8;
+					padding: 1.5rem 1.2rem;
+					min-height: 132px;
+					display: grid;
+					align-content: center;
+					border: 2px dashed #9ca3af;
 					border-radius: 8px;
-					background: #f8fafc;
+					background: #f9fafb;
 				}
 				.upload-list {
 					display: grid;
@@ -962,13 +991,13 @@ export class TimemapContributor extends HTMLElement {
 					padding: 0.6rem 0.8rem;
 				}
 				.status.info {
-					background: #eef2ff;
+					background: #eef0f2;
 				}
 				.status.success {
-					background: #ecfdf5;
+					background: #eef2ee;
 				}
 				.status.warning {
-					background: #fff7ed;
+					background: #f5f1e9;
 				}
 				@media (max-width: 820px) {
 					.shell {
@@ -1003,10 +1032,13 @@ export class TimemapContributor extends HTMLElement {
 					}
 					.header-actions {
 						width: 100%;
-						justify-content: space-between;
+						justify-content: flex-end;
 					}
 					.upload-list li {
 						grid-template-columns: 1fr;
+					}
+					.step-view-header {
+						flex-wrap: wrap;
 					}
 				}
 			</style>
@@ -1023,7 +1055,6 @@ export class TimemapContributor extends HTMLElement {
 							data-action="open-about"
 							aria-label="${escapeHtml(this.t("aria.aboutButton"))}"
 						>${escapeHtml(this.t("buttons.about"))}</button>
-						<div>${Math.min(currentStep + 1, STEP_DEFINITIONS.length)} / ${STEP_DEFINITIONS.length}</div>
 					</div>
 				</header>
 				<nav class="sidebar" part="sidebar" aria-label="${escapeHtml(this.t("aria.submissionSteps"))}">

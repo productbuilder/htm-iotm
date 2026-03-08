@@ -98,12 +98,12 @@ timemap-contributor {
 	height: 100%;
 	min-height: 0;
 	--timemap-widget-height: 100%;
-	--timemap-color-primary: #0f766e;
-	--timemap-radius: 0.25rem;
+	--timemap-color-primary: #4b5563;
+	--timemap-radius: 0.4rem;
 }
 
 #dialog-widget::part(header) {
-	background: #ecfeff;
+	background: #f3f4f6;
 }
 
 #dialog-widget::part(button) {
